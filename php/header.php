@@ -18,13 +18,13 @@
     <meta property="og:url" content="">
     <meta property="og:image" content="">
     <!-- LINKS -->
-    <link rel="stylesheet" href="assets/css/nomarge.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <title>My Cave</title>
 </head>
 <body>
     <header>
+        <!-- NAVBAR -->
         <nav>
             <ul class="menu">
                 <li>
@@ -33,11 +33,16 @@
                 <li><img class="admin" src="assets/img/userRed.png" alt="bouton icône administrateur"></li>
             </ul>
         </nav>
+        <!-- FIN NAVBAR  -->
     </header>
-
+        <!-- MAIN TITLE + BOUTEILLE -->
     <div class="bigTitle"><h1><span class="whiteSpan">m</span><span class="transparentText">yCAV</span><span class="whiteSpan">E</span></h1></div>
 
+    <div class="cave">
+        
+    </div>
 
+<p>test</p>
 
 
     
