@@ -1,3 +1,5 @@
+<?php define('SITE_URL','http://localhost/my_cave_william'); ?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,22 +20,24 @@
     <!-- LINKS -->
     <link rel="stylesheet" href="assets/css/nomarge.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <title>My Cave</title>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li></li>
-                <li></li>
+            <ul class="menu">
+                <li>
+                    <img class="admin" src="assets/img/logo_rouge.png" alt="logo rouge my cave">
+                </li>
+                <li><img class="admin" src="assets/img/userRed.png" alt="bouton icône administrateur"></li>
             </ul>
         </nav>
     </header>
 
+    <div class="bigTitle"><h1><span class="whiteSpan">m</span><span class="transparentText">yCAV</span><span class="whiteSpan">E</span></h1></div>
 
 
 
-    <script type="text/javascript" src="assets/libs/jquery/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/src/script.js"></script>
-</body>
-</html>
+
+    

@@ -1,0 +1,13 @@
+// CSS MENU
+
+.admin {
+    max-height: 50px;
+    max-width: auto;
+    padding-right: 40px;
+}
+.menu {
+    @include flex(flex, space-between, center);
+    list-style: none;
+}
+
+// -----------------------------------------------------------

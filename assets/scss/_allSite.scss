@@ -1,7 +1,13 @@
-img {
-    max-width: 100%;
-}
-
 body {
-    background-color: $mainColor;
+    background-color: $bodyColor;
+}
+.whiteSpan {
+    color: $mainTextColor;
+}
+.transparentText {
+    -webkit-text-stroke: 1px #fff;
+}
+.bigTitle {
+    font-size: 6vw;
+    transform: rotate(-90deg);
 }
