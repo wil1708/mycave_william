@@ -1,6 +1,7 @@
 body {
     background-color: $bodyColor;
 }
+    // TITLE MY CAVE
 .whiteSpan {
     color: $mainTextColor;
 }
@@ -11,9 +12,58 @@ body {
     font-size: 6vw;
     transform: rotate(-90deg);
     font-family: Source_Sans_Pro_Bold;
+    position: absolute;
+    left: -3%;
+    top: 9%;
 }
-p {
-    font-family: Source_Sans_Pro;
-    color: white;
-    font-size: 50px;
+// -------------------------------------------------------------------
+
+    // MAIN TITLE + BOUTEILLE
+.main {
+    width: 100%;
+    height: 85vw;
+    position: relative;
 }
+    // IMAGE CAVE
+.cave {
+    background-image: url('../img/Calque 1.png');
+    background-size: cover;
+    width: 26vw;
+    height: 45vw;
+    position: absolute;
+    left: 30%;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+    margin-top: 16%;
+    margin-bottom: 22%;
+    margin-right: 10%;
+    margin-left: 13%;
+    width: 77.2%;
+    height: 82%;
+}
+.caveBottle1 {
+    margin-right: 0;
+    width: 20%;
+    height: 20%;
+    background-image: url('../img/block_nine.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.caveBottle2 {
+    width: 20%;
+    height: 20%;
+    background-image: url('../img/block_nine.jpg');
+    background-size: cover;
+    background-position: center;
+}
+    // BOTTLE PRESENTATION
+
+.imgBottle {
+    width: 15vw;
+    position: absolute;
+    left: 70%;
+}
+

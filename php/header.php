@@ -1,4 +1,4 @@
-<?php define('SITE_URL','http://localhost/my_cave_william'); ?> 
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,13 +36,56 @@
         <!-- FIN NAVBAR  -->
     </header>
         <!-- MAIN TITLE + BOUTEILLE -->
-    <div class="bigTitle"><h1><span class="whiteSpan">m</span><span class="transparentText">yCAV</span><span class="whiteSpan">E</span></h1></div>
+    <div class="main">
+        <div class="bigTitle"><h1><span class="whiteSpan">m</span><span class="transparentText">yCAV</span><span class="whiteSpan">E</span></h1></div>
 
-    <div class="cave">
-        
+        <div class="cave">
+            <div class="container">
+                <div class="caveBottle1">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+                <div class="caveBottle2">
+                
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <img class="imgBottle" src="./assets/img/block_nine.jpg" alt="">
+            <h2>Chateau de saint cosme</h2>
+            <h3>2009</h3>
+            <h3>GRENACHE/SYRAH</h3>
+        </div>
     </div>
 
-<p>test</p>
+
 
 
     
