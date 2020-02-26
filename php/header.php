@@ -1,4 +1,4 @@
- 
+ <?php define('SITE_URL','http://localhost/mycave_william'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +23,9 @@
     <title>My Cave</title>
 </head>
 <body>
+
+    <?php require './request/connect.php' ?>
+
     <header>
         <!-- NAVBAR -->
         <nav>
@@ -79,12 +82,20 @@
 
         <div>
             <img class="imgBottle" src="./assets/img/block_nine.jpg" alt="">
-            <h2>Chateau de saint cosme</h2>
+        </div>
+        <div class="description">   
+            <h2>Chateau de Saint Cosme</h2>
             <h3>2009</h3>
-            <h3>GRENACHE/SYRAH</h3>
+            <h3>GRENACHE / SYRAH</h3>
+            <p>The aromas of fruit and spice give one a hint of the light drinkability of this lovely wine, which makes an excellent complement to fish dishes.
+            </p>
         </div>
     </div>
+    <script type="text/javascript" src="assets/libs/jquery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/dist/script.min.js"></script>
 
+</body>
+</html>
 
 
 

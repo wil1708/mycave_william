@@ -66,4 +66,52 @@ body {
     position: absolute;
     left: 70%;
 }
+h2 {
+    color: $mainTextColor;
+    font-family: $bigFont;
+}
+h3 {
+    color: $mainTextColor;
+    font-family: $bigFont;
+}
+p {
+    color: $mainTextColor;
+    font-family: $normalFont;
+    width: 37%;
+    text-align: center;    
+}
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 60%;
+    left: 55%;  
+}
+// -----------------------------------------------------------------------
 
+    // FORM LOGIN
+
+::placeholder {
+    color: white;
+}
+input, text {
+    color: white;
+}
+#username {
+    background-color: $bodyColor;
+    border-color: $mainTextColor;
+    font-family: $normalFont;
+}
+#password {
+    background-color: $bodyColor;
+    border-color: $mainTextColor;
+    font-family: $normalFont;
+}
+#button {
+    padding: 5px;
+    margin: 20px 0;
+    background-color: $logoColor;
+    color: $mainTextColor;
+    font-family: $normalFont;
+}  
