@@ -1,23 +1,51 @@
-<?php include 'header.php'; ?>
-<?php  
-$pass_hash=sha1($_POST['password']);
-$username=$_POST['username'];
+<?php 
+require 'connect.php';
+require'../param.php';
 
-$req=$bdd->prepare('SELECT id FROM user WHERE username=:usernameREQ AND password =:passwordREQ');
-$req->execute(array(
-'usernameREQ'=>$username,
-'passwordREQ'=> $pass_hash
-));
-$resultat = $req->fetch();
+$username = trim(strip_tags($_POST['username']));
+$password = trim(strip_tags($_POST['password']));
 
-if(!$resultat){
-    header('Location: login.php?msg=Votre identifiant ou votre mot de passe n\'est pas reconnu.');
+if($username) {
+$req = $bdd->prepare("
+    SELECT *
+    FROM admin
+    WHERE username = :username    
+");
+
+$req->bindValue(':username', $username, PDO::PARAM_STR);
+
+$req->execute();
+
+$result = $req->fetch();
+
+    if($result) {
+        $hash = $result['password'];
+
+        if(password_verify($password, $hash)) {
+            $_SESSION['id'] = $result['id'];
+            $_SESSION['username'] = $result['username'];
+            
+
+            $msg_success = "Vous êtes bien connecté";
+        }
+
+        else {
+            $msg_error = "Le username ou le mot de passe  ne sont pas valides";
+        }
+}
+    else {
+        $msg_error = "Le username ou le mot de passe ne sont pas valides";
+    }
 }
 else {
-    session_start();
-    $_SESSION['id']=$resultat['id'];
-    $_SESSION['pseudo']= $username;
-    header('Location: admin.php');
+        $msg_error = "Le username ou le mot de passe ne sont pas valides";
 }
+if (isset($msg_error)) {
+    $get_result = "msg=$msg_error&username=$username&result=0";
+}
+else {
+    $get_result = "msg=$msg_success&result=1";
+} 
+header("Location: " . SITE_URL . "$get_result");
 
-?>
+ ?>

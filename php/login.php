@@ -1,16 +1,27 @@
-<?php require '../param.php' ?>
 
-<?php include 'header.php'; ?>
+<?php include 'param.php' ?>
 
-<form action="<?php echo SITE_URL . '/request/login_post.php';?>" method="POST" enctype="multipart/form-data">
 
-    <label for="username"></label>
-    <input type="text" name="username" id="username" placeholder="nom d'utilisateur...">
 
-    <label for="password"></label>
-    <input type="password" name="password" id="password" placeholder="mot de passe">
+<?php $username                 = isset($_GET['username']) ? $_GET['username'] : ''; ?>
 
-    <label for="button"></label>
-    <input type="button" value="Se connecter" name="button" id="button">
 
+
+<form action="request/login_post.php" method="POST" enctype="multipart/form-data">
+    <div class="loginTable">
+        <label for="username"></label>
+        <input type="text" name="username" id="username" placeholder="Nom d'utilisateur...">
+
+        <label for="password"></label>
+        <input type="password" name="password" id="password" placeholder="Mot de passe...">
+        <div>
+            <label for="button"></label>
+            <input type="submit" value="Se connecter" name="button" id="button">
+        </div>
+    </div>
 </form>
+
+
+
+
+

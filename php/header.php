@@ -1,4 +1,5 @@
- <?php define('SITE_URL','http://localhost/mycave_william'); ?>
+ <?php include './request/connect.php' ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +24,8 @@
     <title>My Cave</title>
 </head>
 <body>
-
-    <?php require './request/connect.php' ?>
+    
+    
 
     <header>
         <!-- NAVBAR -->
@@ -33,7 +34,20 @@
                 <li>
                     <img class="admin" src="assets/img/logo_rouge.png" alt="logo rouge my cave">
                 </li>
-                <li><img class="admin" src="assets/img/userRed.png" alt="bouton icône administrateur"></li>
+                <li>
+                    <div>
+                        <img class="admin" src="assets/img/userRed.png" alt="bouton icône administrateur">
+                        <ul>
+                            <?php if (isset($_SESSION['id'])) :  ?>
+                            <li>
+                                <?php echo 'connecté' ?>
+                            </li>
+                            
+                            
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </nav>
         <!-- FIN NAVBAR  -->
@@ -79,7 +93,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div>
             <img class="imgBottle" src="./assets/img/block_nine.jpg" alt="">
         </div>
@@ -90,6 +104,7 @@
             <p>The aromas of fruit and spice give one a hint of the light drinkability of this lovely wine, which makes an excellent complement to fish dishes.
             </p>
         </div>
+        <?php include 'login.php' ?>
     </div>
     <script type="text/javascript" src="assets/libs/jquery/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="assets/dist/script.min.js"></script>

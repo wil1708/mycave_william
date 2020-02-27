@@ -100,18 +100,34 @@ input, text {
 }
 #username {
     background-color: $bodyColor;
-    border-color: $mainTextColor;
     font-family: $normalFont;
+    padding: 10px;
 }
 #password {
     background-color: $bodyColor;
-    border-color: $mainTextColor;
     font-family: $normalFont;
+    padding: 10px;
 }
 #button {
-    padding: 5px;
-    margin: 20px 0;
     background-color: $logoColor;
     color: $mainTextColor;
     font-family: $normalFont;
-}  
+    border-style: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+.loginTable {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    position: absolute;
+    left: 89.9%;
+}
+.loginTable>div {
+    padding: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    display: flex;
+    justify-content: center;
+}
