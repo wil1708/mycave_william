@@ -1,12 +1,15 @@
 
-<?php include 'param.php' ?>
+<?php include 'param.php'; ?>
 
 
 
 <?php $username                 = isset($_GET['username']) ? $_GET['username'] : ''; ?>
 
 
-
+<?php if (isset($_SESSION['id'])) :  ?>
+<h4><?php echo 'connecté'; ?></h4>
+<a href="<?php echo SITE_URL . 'php/disconnect.php' ?>">Se déconnecter</a>
+<?php else : ?>
 <form action="request/login_post.php" method="POST" enctype="multipart/form-data">
     <div class="loginTable">
         <label for="username"></label>
@@ -19,9 +22,17 @@
             <input type="submit" value="Se connecter" name="button" id="button">
         </div>
     </div>
+    <div class="msg"><?php if (isset($_GET['msg'])) echo $_GET['msg']; ?></div>
 </form>
+<?php endif; ?>
+<?php  
+if(isset($_GET['result']) && $_GET['result'] == 1) :
+    header('Location: http://localhost/mycave_william/');
+endif;
 
 
+
+?>
 
 
 

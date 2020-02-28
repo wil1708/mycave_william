@@ -1,6 +1,6 @@
 <?php 
-require 'connect.php';
-require'../param.php';
+include 'connect.php';
+include '../param.php';
 
 $username = trim(strip_tags($_POST['username']));
 $password = trim(strip_tags($_POST['password']));
@@ -46,6 +46,6 @@ if (isset($msg_error)) {
 else {
     $get_result = "msg=$msg_success&result=1";
 } 
-header("Location: " . SITE_URL . "$get_result");
+header("Location: " . SITE_URL . "php/login.php?$get_result");
 
  ?>
