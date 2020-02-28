@@ -1,8 +1,3 @@
- <?php include './request/connect.php';
-
-  ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

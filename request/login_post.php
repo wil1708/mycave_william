@@ -41,11 +41,11 @@ else {
         $msg_error = "Le username ou le mot de passe ne sont pas valides";
 }
 if (isset($msg_error)) {
-    $get_result = "msg=$msg_error&username=$username&result=0";
+    $get_result = "?msg=$msg_error&username=$username&result=0";
 }
 else {
-    $get_result = "msg=$msg_success&result=1";
+    $get_result = "?msg=$msg_success&result=1";
 } 
-header("Location: " . SITE_URL . "php/login.php?$get_result");
+header("Location: " . SITE_URL . "$get_result");
 
  ?>
