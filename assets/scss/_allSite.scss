@@ -63,8 +63,6 @@ body {
 
 .imgBottle {
     width: 15vw;
-    position: absolute;
-    left: 70%;
 }
 h2 {
     color: $mainTextColor;
@@ -85,8 +83,18 @@ p {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    bottom: 60%;
     left: 55%;  
+}
+.disconnect {
+    position: absolute;
+    left: 94%;
+    color: $mainTextColor;
+}
+.disconnectColor {
+    color: $oneLetterColor
+}
+a {
+    font-family: $normalFont;
 }
 // -----------------------------------------------------------------------
 
@@ -131,3 +139,12 @@ input, text {
     display: flex;
     justify-content: center;
 }
+.msg {
+    color: $mainTextColor;
+    font-family: $normalFont;
+    font-style: italic;
+    position: absolute;
+    left: 77%;
+    top: -3%;
+}
+// -------------------------------------------

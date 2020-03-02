@@ -27,6 +27,12 @@
     <header>
         <!-- NAVBAR -->
         <nav>
+            <?php if (isset($_SESSION['id'])) :  ?>
+            <div class="addButton">
+                 <i class="fas fa-plus fa-4x"></i>
+                <h4>ajouter une bouteille de collection</h4>
+             </div>
+         <?php endif; ?>
             <ul class="menu">
                 <li>
                     <img class="admin" src="assets/img/logo_rouge.png" alt="logo rouge my cave">
@@ -82,10 +88,10 @@
             </div>
         </div>
         
-        <div>
+        <div class="description">
             <img class="imgBottle" src="./assets/img/block_nine.jpg" alt="">
-        </div>
-        <div class="description">   
+        
+           
             <h2>Chateau de Saint Cosme</h2>
             <h3>2009</h3>
             <h3>GRENACHE / SYRAH</h3>

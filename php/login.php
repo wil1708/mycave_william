@@ -1,13 +1,9 @@
 <?php $username                 = isset($_GET['username']) ? $_GET['username'] : ''; ?>
 
-
 <?php if (isset($_SESSION['id'])) :  ?>
-<h4><?php echo 'connecté'; ?></h4>
-<a href="<?php echo SITE_URL . 'php/disconnect.php' ?>">Se déconnecter</a>
+<a class="disconnect" href="<?php echo SITE_URL . 'php/disconnect.php' ?>"><span class="disconnectColor">S</span>e déconnecter</a>
 <?php else : ?>
 <form action="<?php echo SITE_URL . 'request/login_post.php'; ?>" method="POST" enctype="multipart/form-data">
-
-
     <div class="loginTable">
         <label for="username"></label>
         <input type="text" name="username" id="username" placeholder="Nom d'utilisateur...">
@@ -26,9 +22,6 @@
 if(isset($_GET['result']) && $_GET['result'] == 1) :
     header('Location:' . SITE_URL);
 endif;
-
-
-
 ?>
 
 

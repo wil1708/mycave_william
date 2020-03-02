@@ -11,5 +11,20 @@
 }
 h4 {
     color: $mainTextColor;
+    font-family: $normalFont;
 }
 // -----------------------------------------------------------
+    // ADD BUTTON
+
+.fa-plus {
+    color: $plusColor;
+    margin-right: 10px;
+}
+.addButton {
+    position: absolute;
+    display: flex;
+    left: 30%;
+}
+nav {
+    position: relative;
+}
