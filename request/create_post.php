@@ -1,34 +1,42 @@
 <?php
 require 'connect.php';
-$name      = strip_tags($_POST['name']);
-$year       = strip_tags($_POST['year']); 
-$grape          = strip_tags($_POST['grape']); 
-$region            = strip_tags($_POST['region']);
-$country         = strip_tags($_POST['country']);
-$shadow_var     = strip_tags($_POST['shadow_var']);
-$file           = $_FILES['upload'];
-var_dump($file);
+$name               = strip_tags($_POST['name']);
+$year               = strip_tags($_POST['year']); 
+$grape              = strip_tags($_POST['grape']); 
+$region             = strip_tags($_POST['region']);
+$country            = strip_tags($_POST['country']);
+$description        = strip_tags($_POST['description']);
+$image              = $_FILES['image'];
+$shadow_var         = strip_tags($_POST['shadow_var']);
+
 // Liste des erreurs 
 // https://www.php.net/manual/en/features.file-upload.errors.php
 
-if (empty($firstname)) :
+if (empty($name)) :
     $result = false;
-    $response = 'Remplir le champ prénom';
+    $response = 'Remplir le champs nom';
 
-elseif (empty($lastname)) :
+elseif (empty($year)) :
     $result = false;
-    $response = 'Remplir le champ nom';
-elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) :
+    $response = 'Remplir le champ année';
+
+elseif (empty($grape)) :
     $result = false;
-    $response = 'Renseigner un email valide';
-elseif ($gender === 0) :
+    $response = 'Remplir le champ cépage';
+
+elseif (empty($region)) :
     $result = false;
-    $response = 'Choisissez votre sexe';
-elseif (empty($msg)) :
+    $response = 'Remplir le champ région';
+
+elseif (empty($country)) :
     $result = false;
-    $response = 'Ecrire un message';
+    $response = 'Remplir le champ pays';
+
+elseif (empty($description)) :
+    $result = false;
+    $response = 'Remplir le champ description';
 else :
-    $error = $file['error'];
+    $error = $image['error'];
     if( $error > 0 && $error != 4) :
 
         if( $error == 1 || $error == 2) :
@@ -43,15 +51,19 @@ else :
         if($error == 4) :
 
             $req = $bdd->prepare("
-                INSERT INTO contact_form (id_gender, lastname, firstname, email, message, date_create, file_url)
-                VALUES (:id_gender, :lastname, :firstname, :email, :message, NOW(), :file_url)
+                INSERT INTO secondtable (name, grape, region, country)
+                VALUES (:name, :grape, :region, :country);
+                INSERT INTO maintable (id_secondtable, image, year, description)
+                VALUES (:LAST_INSERT_ID, :image, :year, :description)
             ");
+
+
             $success = $req->execute(array(
-                'id_gender' => $gender,
-                'lastname'  => $lastname,
-                'firstname' => $firstname,
-                'email'     => $email,                
-                'message'   => $msg,
+                'name' => $name,
+                'year'  => $year,
+                'grape' => $grape,
+                'region'     => $region,                
+                'country'   => $country,
                 'file_url'  => ''
             ));
 
