@@ -98,6 +98,7 @@
             <p>The aromas of fruit and spice give one a hint of the light drinkability of this lovely wine, which makes an excellent complement to fish dishes.
             </p>
         </div>
+        <?php include 'create.php'; ?>
         <?php include 'login.php'; ?>
     </div>
     <script type="text/javascript" src="assets/libs/jquery/jquery-3.4.1.min.js"></script>

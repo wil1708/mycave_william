@@ -6,7 +6,7 @@ $grape              = strip_tags($_POST['grape']);
 $region             = strip_tags($_POST['region']);
 $country            = strip_tags($_POST['country']);
 $description        = strip_tags($_POST['description']);
-$image              = $_FILES['image'];
+$file               = $_FILES['image'];
 $shadow_var         = strip_tags($_POST['shadow_var']);
 
 // Liste des erreurs 
@@ -36,7 +36,7 @@ elseif (empty($description)) :
     $result = false;
     $response = 'Remplir le champ description';
 else :
-    $error = $image['error'];
+    $error = $file['error'];
     if( $error > 0 && $error != 4) :
 
         if( $error == 1 || $error == 2) :
@@ -51,21 +51,21 @@ else :
         if($error == 4) :
 
             $req = $bdd->prepare("
-                INSERT INTO secondtable (name, grape, region, country)
-                VALUES (:name, :grape, :region, :country);
-                INSERT INTO maintable (id_secondtable, image, year, description)
-                VALUES (:LAST_INSERT_ID, :image, :year, :description)
+                INSERT INTO maintable (id_secondtable, name, grape, region, country)
+                VALUES (LAST_INSERT_ID(), :name, :grape, :region, :country);
+                INSERT INTO secondtable (image, year, description)
+                VALUES (:image, :year, :description);
             ");
 
 
             $success = $req->execute(array(
                 'name'        => $name,
-                'year'        => $year,
                 'grape'       => $grape,
                 'region'      => $region,                
                 'country'     => $country,
-                'description' => $description,
-                'image'       => ''
+                'image'       => '',
+                'year'        => $year,
+                'description' => $description
             ));
 
             if($success) :
@@ -73,7 +73,7 @@ else :
                 $response = 'Nouveau produit ajouté';
             else :
                 $result = false;
-                $response = 'Oups ! une erreur s\'est produite';
+                $response = 'Holla';
             endif;
             
         else :
@@ -90,40 +90,41 @@ else :
 
             if(in_array($upload_ext,$valid_ext)) :
 
-                if($image['size'] <= 1000000) :
+                if($file['size'] <= 1000000) :
 
-                    $dbname         = uniqid() . '_' . $image['name'];
-                    $upload_name    = '../upload/' . $dbname;
+                    $dbname         = uniqid() . '_' . $file['name'];
+                    $upload_name    = '../assets/img/' . $dbname;
 
                     // bouge le fichier stocké temporairement vers un dossier du serveur
-                    $move_result = move_uploaded_file($image['tmp_name'], $upload_name);
+                    $move_result = move_uploaded_file($file['tmp_name'], $upload_name);
 
                     if($move_result) :
 
                         $req = $bdd->prepare("
-                            INSERT INTO secondtable (name, grape, region, country)
-                            VALUES (:name, :grape, :region, :country);
-                            INSERT INTO maintable (id_secondtable, image, year, description)
-                            VALUES (:LAST_INSERT_ID, :image, :year, :description)
+                            INSERT INTO maintable (id_secondtable, name, grape, region, country)
+                            VALUES (LAST_INSERT_ID(), :name, :grape, :region, :country);
+                            INSERT INTO secondtable (image, year, description)
+                            VALUES (:image, :year, :description);
                         ");
-
 
                         $success = $req->execute(array(
                             'name'        => $name,
-                            'year'        => $year,
                             'grape'       => $grape,
                             'region'      => $region,                
                             'country'     => $country,
-                            'description' => $description,
-                            'image'       => $dbname
+                            'image'       => $dbname,
+                            'year'        => $year,
+                            'description' => $description
                         ));
+
+                        var_dump($success);
 
                         if($success) :
                             $result = true;
-                            $response = 'Nouveau produit ajouté';
+                            echo 'Nouveau produit ajouté';
                         else :
                             $result = false;
-                            $response = 'Oups ! une erreur s\'est produite';
+                            echo 'Ca marche paaaaaaas';
                         endif;
 
                     else :
@@ -143,7 +144,7 @@ else :
             else:
 
                 $result = false;
-                $response = 'Le fichier n\'est pas une image de type png, jpg ou jpeg';
+                $response = 'L\'extension n\'est pas bonne';
 
             endif;
 
@@ -160,5 +161,5 @@ else {
     $get_request = "response=$response&name=$name&year=$year&grape=$grape&region=$region&country=$country&description=$description";
 }
 
-header("Location: ../php/create.php?$get_request");
+/*header("Location: ../php/create.php?$get_request");*/
 ?>
