@@ -59,17 +59,18 @@ else :
 
 
             $success = $req->execute(array(
-                'name' => $name,
-                'year'  => $year,
-                'grape' => $grape,
-                'region'     => $region,                
-                'country'   => $country,
-                'file_url'  => ''
+                'name'        => $name,
+                'year'        => $year,
+                'grape'       => $grape,
+                'region'      => $region,                
+                'country'     => $country,
+                'description' => $description,
+                'image'       => ''
             ));
 
             if($success) :
                 $result = true;
-                $response = 'Message bien envoyé';
+                $response = 'Nouveau produit ajouté';
             else :
                 $result = false;
                 $response = 'Oups ! une erreur s\'est produite';
@@ -89,32 +90,37 @@ else :
 
             if(in_array($upload_ext,$valid_ext)) :
 
-                if($file['size'] <= 1000000) :
+                if($image['size'] <= 1000000) :
 
-                    $dbname         = uniqid() . '_' . $file['name'];
+                    $dbname         = uniqid() . '_' . $image['name'];
                     $upload_name    = '../upload/' . $dbname;
 
                     // bouge le fichier stocké temporairement vers un dossier du serveur
-                    $move_result = move_uploaded_file($file['tmp_name'], $upload_name);
+                    $move_result = move_uploaded_file($image['tmp_name'], $upload_name);
 
                     if($move_result) :
 
                         $req = $bdd->prepare("
-                            INSERT INTO contact_form (id_gender, lastname, firstname, email,  message, date_create, file_url)
-                            VALUES (:id_gender,:lastname, :firstname, :email, :message, NOW(), :file_url)
+                            INSERT INTO secondtable (name, grape, region, country)
+                            VALUES (:name, :grape, :region, :country);
+                            INSERT INTO maintable (id_secondtable, image, year, description)
+                            VALUES (:LAST_INSERT_ID, :image, :year, :description)
                         ");
+
+
                         $success = $req->execute(array(
-                            'id_gender' => $gender,
-                            'lastname'  => $lastname,
-                            'firstname' => $firstname,
-                            'email'     => $email,                            
-                            'message'   => $msg,
-                            'file_url'  => $dbname
+                            'name'        => $name,
+                            'year'        => $year,
+                            'grape'       => $grape,
+                            'region'      => $region,                
+                            'country'     => $country,
+                            'description' => $description,
+                            'image'       => $dbname
                         ));
 
                         if($success) :
                             $result = true;
-                            $response = 'Message bien envoyé';
+                            $response = 'Nouveau produit ajouté';
                         else :
                             $result = false;
                             $response = 'Oups ! une erreur s\'est produite';
@@ -151,8 +157,8 @@ if($result) {
     $get_request = "response=$response";
 }
 else {
-    $get_request = "response=$response&firstname=$firstname&lastname=$lastname&email=$email&msg=$msg&gender=$gender";
+    $get_request = "response=$response&name=$name&year=$year&grape=$grape&region=$region&country=$country&description=$description";
 }
 
-header("Location: ../php/form.php?$get_request");
+header("Location: ../php/create.php?$get_request");
 ?>
