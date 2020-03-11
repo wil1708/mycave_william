@@ -7,7 +7,7 @@ $year           = isset($_GET['year']) ? $_GET['year'] :  '';
 $grape          = isset($_GET['grape']) ? $_GET['grape'] : ''; 
 $region         = isset($_GET['region']) ? $_GET['region'] : '';
 $country        = isset($_GET['country']) ? $_GET['country'] : '';
-$description        = isset($_GET['description']) ? $_GET['description'] : '';
+$description    = isset($_GET['description']) ? $_GET['description'] : '';
 
 ?>
 

@@ -18,11 +18,6 @@
     <div class="msg"><?php if (isset($_GET['msg'])) echo $_GET['msg']; ?></div>
 </form>
 <?php endif; ?>
-<?php  
-if(isset($_GET['result']) && $_GET['result'] == 1) :
-    header('Location:' . SITE_URL);
-endif;
-?>
 
 
 

@@ -30,15 +30,15 @@ $result = $req->fetch();
         }
 
         else {
-            $msg_error = "Le username ou le mot de passe  ne sont pas valides";
+            $msg_error = "Le username ou le mot de passe  n'est pas valide";
         }
 }
     else {
-        $msg_error = "Le username ou le mot de passe ne sont pas valides";
+        $msg_error = "Le username ou le mot de passe n'est pas valide";
     }
 }
 else {
-        $msg_error = "Le username ou le mot de passe ne sont pas valides";
+        $msg_error = "Le username ou le mot de passe n'est pas valide";
 }
 if (isset($msg_error)) {
     $get_result = "?msg=$msg_error&username=$username&result=0";
@@ -48,4 +48,4 @@ else {
 } 
 header("Location: " . SITE_URL . "$get_result");
 
- ?>
+?>

@@ -1,5 +1,6 @@
 <?php
 require 'connect.php';
+include '../param.php';
 $name               = strip_tags($_POST['name']);
 $year               = strip_tags($_POST['year']); 
 $grape              = strip_tags($_POST['grape']); 
@@ -51,21 +52,24 @@ else :
         if($error == 4) :
 
             $req = $bdd->prepare("
-                INSERT INTO maintable (id_secondtable, name, grape, region, country)
-                VALUES (LAST_INSERT_ID(), :name, :grape, :region, :country);
-                INSERT INTO secondtable (image, year, description)
+
+                INSERT INTO change_bottle (image, year, description)
                 VALUES (:image, :year, :description);
+                INSERT INTO main_bottle (id_change_bottle, name, grape, region, country)
+                VALUES (LAST_INSERT_ID(), :name, :grape, :region, :country);
+                
             ");
 
 
             $success = $req->execute(array(
+                'image'       => '',
+                'year'        => $year,
+                'description' => $description,
                 'name'        => $name,
                 'grape'       => $grape,
                 'region'      => $region,                
-                'country'     => $country,
-                'image'       => '',
-                'year'        => $year,
-                'description' => $description
+                'country'     => $country
+                
             ));
 
             if($success) :
@@ -73,7 +77,7 @@ else :
                 $response = 'Nouveau produit ajouté';
             else :
                 $result = false;
-                $response = 'Holla';
+                $response = 'Oups ! une erreur s\'est produite';
             endif;
             
         else :
@@ -101,30 +105,34 @@ else :
                     if($move_result) :
 
                         $req = $bdd->prepare("
-                            INSERT INTO maintable (id_secondtable, name, grape, region, country)
-                            VALUES (LAST_INSERT_ID(), :name, :grape, :region, :country);
-                            INSERT INTO secondtable (image, year, description)
+
+                            INSERT INTO change_bottle (image, year, description)
                             VALUES (:image, :year, :description);
+                            INSERT INTO main_bottle (name, grape, region, country, id_change_bottle)
+                            VALUES (:name, :grape, :region, :country, LAST_INSERT_ID());
+                            
                         ");
 
+
                         $success = $req->execute(array(
+                            'image'       => $dbname,
+                            'year'        => $year,
+                            'description' => $description,
                             'name'        => $name,
                             'grape'       => $grape,
                             'region'      => $region,                
-                            'country'     => $country,
-                            'image'       => $dbname,
-                            'year'        => $year,
-                            'description' => $description
+                            'country'     => $country
+                            
                         ));
 
                         var_dump($success);
 
                         if($success) :
                             $result = true;
-                            echo 'Nouveau produit ajouté';
+                            $response = 'Nouveau produit ajouté';
                         else :
                             $result = false;
-                            echo 'Ca marche paaaaaaas';
+                            $response = 'Oups ! une erreur s\'est produite';
                         endif;
 
                     else :
@@ -144,7 +152,7 @@ else :
             else:
 
                 $result = false;
-                $response = 'L\'extension n\'est pas bonne';
+                $response = 'Le fichier n\'est pas une image de type png, jpg ou jpeg';
 
             endif;
 
@@ -155,11 +163,11 @@ else :
 endif;
 
 if($result) {
-    $get_request = "response=$response";
+    $get_request = "?response=$response";
 }
 else {
-    $get_request = "response=$response&name=$name&year=$year&grape=$grape&region=$region&country=$country&description=$description";
+    $get_request = "?response=$response&name=$name&year=$year&grape=$grape&region=$region&country=$country&description=$description";
 }
 
-/*header("Location: ../php/create.php?$get_request");*/
+header("Location: " . SITE_URL . "$get_request");
 ?>
