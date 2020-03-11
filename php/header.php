@@ -55,34 +55,34 @@
                 <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
-                <div class="caveBottle2">
+                <div class="caveBottle1">
                 
                 </div>
             </div>
