@@ -53,22 +53,26 @@ else :
 
             $req = $bdd->prepare("
 
-                INSERT INTO change_bottle (image, year, description)
-                VALUES (:image, :year, :description);
-                INSERT INTO main_bottle (id_change_bottle, name, grape, region, country)
-                VALUES (LAST_INSERT_ID(), :name, :grape, :region, :country);
+                INSERT INTO main_bottle (name, region, country)
+                VALUES (:name, :region, :country);
+                INSERT INTO change_bottle (image, grape, year, description, id_change_bottle)
+                VALUES (:image, :grape, :year, :description, LAST_INSERT_ID());
+                
                 
             ");
 
 
             $success = $req->execute(array(
-                'image'       => '',
-                'year'        => $year,
-                'description' => $description,
                 'name'        => $name,
-                'grape'       => $grape,
                 'region'      => $region,                
-                'country'     => $country
+                'country'     => $country,
+                'image'       => '',
+                'grape'       => $grape,
+                'year'        => $year,
+                'description' => $description
+                
+                
+                
                 
             ));
 
@@ -97,7 +101,7 @@ else :
                 if($file['size'] <= 1000000) :
 
                     $dbname         = uniqid() . '_' . $file['name'];
-                    $upload_name    = '../assets/img/' . $dbname;
+                    $upload_name    = '../assets/upload/' . $dbname;
 
                     // bouge le fichier stocké temporairement vers un dossier du serveur
                     $move_result = move_uploaded_file($file['tmp_name'], $upload_name);
@@ -106,22 +110,26 @@ else :
 
                         $req = $bdd->prepare("
 
-                            INSERT INTO change_bottle (image, year, description)
-                            VALUES (:image, :year, :description);
-                            INSERT INTO main_bottle (name, grape, region, country, id_change_bottle)
-                            VALUES (:name, :grape, :region, :country, LAST_INSERT_ID());
-                            
+                            INSERT INTO main_bottle (name, region, country)
+                            VALUES (:name, :region, :country);
+                            INSERT INTO change_bottle (image, grape, year, description, id_change_bottle)
+                            VALUES (:image, :grape, :year, :description, LAST_INSERT_ID());
+                
+                
                         ");
 
 
                         $success = $req->execute(array(
-                            'image'       => $dbname,
-                            'year'        => $year,
-                            'description' => $description,
                             'name'        => $name,
-                            'grape'       => $grape,
                             'region'      => $region,                
-                            'country'     => $country
+                            'country'     => $country,
+                            'image'       => $dbname,
+                            'grape'       => $grape,
+                            'year'        => $year,
+                            'description' => $description
+                            
+                            
+                            
                             
                         ));
 
@@ -162,12 +170,6 @@ else :
 
 endif;
 
-if($result) {
-    $get_request = "?response=$response";
-}
-else {
-    $get_request = "?response=$response&name=$name&year=$year&grape=$grape&region=$region&country=$country&description=$description";
-}
 
-header("Location: " . SITE_URL . "$get_request");
+header("Location: " . SITE_URL);
 ?>
