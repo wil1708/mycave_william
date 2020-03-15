@@ -50,54 +50,10 @@
     <div class="main">
         <div class="bigTitle"><h1><span class="whiteSpan">m</span><span class="transparentText">yCAV</span><span class="whiteSpan">E</span></h1></div>
 
-        <div class="cave">
-            <div class="container">
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-                <div class="caveBottle1">
-                
-                </div>
-            </div>
-        </div>
+        <?php include 'read.php'; ?>
         
-        <div class="description">
-            <img class="imgBottle" src="./assets/img/block_nine.jpg" alt="">
         
-           
-            <h2>Chateau de Saint Cosme</h2>
-            <h3>2009</h3>
-            <h3>GRENACHE / SYRAH</h3>
-            <p>The aromas of fruit and spice give one a hint of the light drinkability of this lovely wine, which makes an excellent complement to fish dishes.
-            </p>
-        </div>
+
         <?php include 'create.php'; ?>
         <?php include 'login.php'; ?>
     </div>

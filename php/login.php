@@ -1,7 +1,7 @@
 <?php $username                 = isset($_GET['username']) ? $_GET['username'] : ''; ?>
 
 <?php if (isset($_SESSION['id'])) :  ?>
-<a class="disconnect" href="<?php echo SITE_URL . 'php/disconnect.php' ?>"><span class="disconnectColor">S</span>e déconnecter</a>
+<a class="disconnect" href="<?php echo SITE_URL . 'php/disconnect.php' ?>"><span class="disconnectColor">Se déconnecter</a>
 <?php else : ?>
 <form action="<?php echo SITE_URL . 'request/login_post.php'; ?>" method="POST" enctype="multipart/form-data">
     <div class="loginTable">

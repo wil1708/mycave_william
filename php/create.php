@@ -41,8 +41,7 @@ $description    = isset($_GET['description']) ? $_GET['description'] : '';
             echo '<div>' . $_GET['response'] . '</div>';
         }
         ?>
-
-
+        
         <button class="buttonCreate" type="submit">Ajouter</button>
     </div>
 </form>

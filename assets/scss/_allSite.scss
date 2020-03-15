@@ -18,7 +18,7 @@ body {
 }
 // -------------------------------------------------------------------
 
-    // MAIN BODY (TITLE + IMAGE CAVE + BOTTLE PRESENTATION)
+    // MAIN BODY (IMAGE CAVE + BOTTLE PRESENTATION)
 .main {
     width: 100%;
     height: 85vw;
@@ -47,7 +47,7 @@ body {
 .caveBottle1 {
     width: 20%;
     height: 20%;
-    background-image: url('../img/block_nine.jpg');
+    
     background-size: cover;
     background-position: center;
 }
@@ -76,7 +76,8 @@ p {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    left: 55%;  
+    left: 55%;
+    top: 1.5%;  
 }
 .disconnect {
     position: absolute;
@@ -84,7 +85,7 @@ p {
     color: $mainTextColor;
 }
 .disconnectColor {
-    color: $oneLetterColor
+    color: $mainTextColor;
 }
 a {
     font-family: $normalFont;
@@ -150,46 +151,46 @@ input, text {
     width: 10vw;
     left: 56.3%;
     top: 1.5%;
-    background-color: $logoColor;
+    background-color: $oneLetterColor;
     border-radius: 5px;
 }
 #name {
-    background-color: $logoColor;
+    background-color: $bodyColor;
     font-family: $normalFont;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
 }
 #year {
-    background-color: $logoColor;
+    background-color: $bodyColor;
     font-family: $normalFont;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
 }
 #grape {
-    background-color: $logoColor;
+    background-color: $bodyColor;
     font-family: $normalFont;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
 }
 #region {
-    background-color: $logoColor;
+    background-color: $bodyColor;
     font-family: $normalFont;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
 }
 #country {
-    background-color: $logoColor;
+    background-color: $bodyColor;
     font-family: $normalFont;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
 }
 #description {
-    background-color: $logoColor;
+    background-color: $bodyColor;
     font-family: $normalFont;
     padding: 10px;
     margin: 10px;

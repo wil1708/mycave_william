@@ -57,10 +57,8 @@ else :
                 VALUES (:name, :region, :country);
                 INSERT INTO change_bottle (image, grape, year, description, id_change_bottle)
                 VALUES (:image, :grape, :year, :description, LAST_INSERT_ID());
-                
-                
+                 
             ");
-
 
             $success = $req->execute(array(
                 'name'        => $name,
@@ -70,10 +68,7 @@ else :
                 'grape'       => $grape,
                 'year'        => $year,
                 'description' => $description
-                
-                
-                
-                
+              
             ));
 
             if($success) :
@@ -115,9 +110,7 @@ else :
                             INSERT INTO change_bottle (image, grape, year, description, id_change_bottle)
                             VALUES (:image, :grape, :year, :description, LAST_INSERT_ID());
                 
-                
                         ");
-
 
                         $success = $req->execute(array(
                             'name'        => $name,
@@ -127,10 +120,7 @@ else :
                             'grape'       => $grape,
                             'year'        => $year,
                             'description' => $description
-                            
-                            
-                            
-                            
+                              
                         ));
 
                         var_dump($success);
@@ -138,6 +128,8 @@ else :
                         if($success) :
                             $result = true;
                             $response = 'Nouveau produit ajouté';
+
+                            echo 'coucou';
                         else :
                             $result = false;
                             $response = 'Oups ! une erreur s\'est produite';
@@ -171,5 +163,5 @@ else :
 endif;
 
 
-header("Location: " . SITE_URL);
+header("Location: " . SITE_URL . "$get_request");
 ?>
