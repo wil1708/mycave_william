@@ -48,4 +48,3 @@ else {
 } 
 header("Location: " . SITE_URL . "$get_result");
 
-?>

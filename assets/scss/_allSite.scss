@@ -43,11 +43,11 @@ body {
     margin-left: 13%;
     width: 77.2%;
     height: 82%;
+    
 }
 .caveBottle1 {
     width: 20%;
     height: 20%;
-    
     background-size: cover;
     background-position: center;
 }
@@ -72,13 +72,16 @@ p {
     text-align: center;    
 }
 .description {
+    position: absolute;
+    left: 125%;
+    top: 1.5%; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    left: 55%;
-    top: 1.5%;  
 }
+// -----------------------------------------------------------------------
+
+    // FORM LOGIN
 .disconnect {
     position: absolute;
     left: 94%;
@@ -90,9 +93,7 @@ p {
 a {
     font-family: $normalFont;
 }
-// -----------------------------------------------------------------------
 
-    // FORM LOGIN
 
 ::placeholder {
     color: white;

@@ -53,10 +53,8 @@ else :
 
             $req = $bdd->prepare("
 
-                INSERT INTO main_bottle (name, region, country)
-                VALUES (:name, :region, :country);
-                INSERT INTO change_bottle (image, grape, year, description, id_change_bottle)
-                VALUES (:image, :grape, :year, :description, LAST_INSERT_ID());
+                INSERT INTO main_bottle (name, region, country, image, grape, year, description)
+                VALUES (:name, :region, :country, :image, :grape, :year, :description);
                  
             ");
 
@@ -105,10 +103,8 @@ else :
 
                         $req = $bdd->prepare("
 
-                            INSERT INTO main_bottle (name, region, country)
-                            VALUES (:name, :region, :country);
-                            INSERT INTO change_bottle (image, grape, year, description, id_change_bottle)
-                            VALUES (:image, :grape, :year, :description, LAST_INSERT_ID());
+                            INSERT INTO main_bottle (name, region, country, image, grape, year, description)
+                            VALUES (:name, :region, :country, :image, :grape, :year, :description);
                 
                         ");
 
@@ -164,4 +160,3 @@ endif;
 
 
 header("Location: " . SITE_URL . "$get_request");
-?>

@@ -10,7 +10,7 @@ $req = $bdd->prepare("
 $req->bindValue(":username", "admin", PDO::PARAM_STR);
 $req->bindValue(":password", $hash, PDO::PARAM_STR);
 $result = $req->execute();
-?>
+
 
 
 
