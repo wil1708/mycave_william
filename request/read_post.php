@@ -3,7 +3,7 @@
 require 'connect.php';
 
 $req = $bdd->query("
-    SELECT name, region, country, image, grape, year, description
+    SELECT id, name, region, country, image, grape, year, description
     FROM main_bottle
     
 ");
