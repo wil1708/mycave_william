@@ -48,7 +48,11 @@
     </header>
         <!-- MAIN TITLE + BOUTEILLE -->
     <div class="main">
-        <div class="bigTitle"><h1><span class="whiteSpan">m</span><span class="transparentText">yCAV</span><span class="whiteSpan">E</span></h1></div>
+        <?php include 'update.php'; ?>
+        <div class="bigTitle">
+            <h1><span class="whiteSpan">m</span><span class="transparentText">yCAV</span><span class="whiteSpan">E</span>
+            </h1>
+        </div>
 
         <?php include 'read.php'; ?>
         

@@ -212,3 +212,16 @@ input, text {
     padding: 5px;
     margin: 10px;
 }
+// ---------------------------------------------------------------------------------------
+    // FORM UPDATE
+
+.createForm2 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 10vw;
+    left: 56.3%;
+    top: 1.5%;
+    background-color: $logoColor;
+    border-radius: 5px;
+}
