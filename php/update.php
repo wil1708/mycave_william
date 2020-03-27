@@ -1,11 +1,11 @@
 <?php 
 
-include './request/update_post.php';
+include './request/connect.php';
 
 $req=$bdd->prepare('
 
     SELECT name, region, country, image, grape, year, description
-    FROM main_table
+    FROM main_bottle
     WHERE id = ?
 
 ');
