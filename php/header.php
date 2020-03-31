@@ -48,7 +48,7 @@
     </header>
         <!-- MAIN TITLE + BOUTEILLE -->
     <div class="main">
-        <?php include 'update.php'; ?>
+        
         <div class="bigTitle">
             <h1><span class="whiteSpan">m</span><span class="transparentText">yCAV</span><span class="whiteSpan">E</span>
             </h1>

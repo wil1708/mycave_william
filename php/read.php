@@ -14,7 +14,7 @@
                         
                         <img src="<?php echo 'http://localhost/mycave_william/assets/upload/' . $datas->image; ?>" alt="<?php echo $datas->name; ?>">
 
-                        <h2> <a href="request/delete.php?id_url=<?php echo $datas->id;?>"> <i class="fas fa-trash-alt"> </i> </a><?php echo $datas->name; ?> <a href="request/update.php?id_url=<?php echo $datas->id;?>"> <i class="far fa-edit"></i> </a> </h2>
+                        <h2> <a href="request/delete.php?id_url=<?php echo $datas->id;?>"> <i class="fas fa-trash-alt"> </i> </a><?php echo $datas->name; ?> <a href="php/update.php?id_url=<?php echo $datas->id;?>"> <i class="far fa-edit"></i> </a> </h2>
 
 
 

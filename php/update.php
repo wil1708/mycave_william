@@ -1,6 +1,6 @@
 <?php 
 
-include './request/connect.php';
+include '../request/connect.php';
 
 $req=$bdd->prepare('
 
@@ -15,7 +15,7 @@ $donnees = $req->fetch();
 
 ?>
 
-<form action="request/update_post?id_url=<?php echo $_GET['id_url']; ?>" method="POST" enctype="multipart/form-data">
+<form action="../request/update_post?id_url=<?php echo $_GET['id_url']; ?>" method="POST" enctype="multipart/form-data">
     <div class="createForm2">
         <label for="name"></label>
         <input type="text" name="name" id="name" placeholder="Nom..." value="<?php echo $donnees['name']; ?>">
